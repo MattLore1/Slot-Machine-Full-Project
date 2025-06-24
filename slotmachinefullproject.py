@@ -1,5 +1,8 @@
 #slot machine game
 import random
+from playsound import playsound
+import threading
+import time
 
 def spin_row():
     symbols = ["🌟","🍒","🍉","🍋","💀"]
@@ -25,9 +28,29 @@ def get_payout(row, bet):
             return bet
     return 0
 
+def play_spin_sound():
+    playsound("slot_spin.mp3")
+
+def spin_animation():
+    print("Spinning", end="", flush=True)
+
+    initial_delay = 1
+    time.sleep(initial_delay)
+
+    delay = 0.5  
+    growth_factor = 1.25
+
+    for _ in range(5):
+        print(".", end="", flush=True)
+        time.sleep(delay)
+        delay *= growth_factor
+
+    print("\n")
+
 def play_game():
     balance = 100
-    
+    playsound("start.mp3")
+
     print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
     print(" Welcome to the Python Slot Game!")
     print(" Symbols: 🌟 > 🍒 > 🍉 > 🍋 > 💀")
@@ -56,16 +79,30 @@ def play_game():
         print(f"New balance: 💰{balance}")
 
         row = spin_row()
-        print("Spinning . . . \n")
+
+        # Start spin sound in a separate thread
+        spin_sound_thread = threading.Thread(target=play_spin_sound)
+        spin_sound_thread.start()
+
+        spin_animation()
+
+        spin_sound_thread.join()
+
         print_row(row)
 
         payout = get_payout(row, bet)
 
         if payout > 0:
             print(f"You won 💰{payout}")
+            playsound("win.mp3")
+
+        elif payout == (bet * 20):
+            print(f"JACKPOT! You won 💰{payout}")
+            playsound("big_win.mp3")
+
         else:
             print("You lost this round")
-        
+            playsound("miss.mp3")
         balance += payout
        
 def main():

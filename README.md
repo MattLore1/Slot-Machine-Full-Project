@@ -10,12 +10,9 @@ This started a simple exercise but felt inspired to build out the feature set to
 - [x] Add `README.md` with project goals and setup instructions
 
 ### Features to Add
-- [ ] 🔊 Add sound for slot spinning
-- [ ] 🎉 Add sound for big win (e.g., all 🌟s)
-- [ ] 🖼️ Add ASCII animation or fireworks effect on jackpot
-- [ ] 💾 Add save system with persistent stats tracking (wins/losses, balance, etc.)
-- [ ] 🎲 Adjust symbol odds to balance game difficulty
+- [x] 🔊 Add sound for slot spinning
+- [x] 🎉 Add sound for big win (e.g., all 🌟s)
+- [x] 🖼️ Add "spinning" animation 
 - [ ] 🐣 Add secret "easter egg" code that triggers guaranteed wins
-- [ ] 💰 Implement a progressive jackpot feature
 
 ---
