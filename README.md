@@ -13,6 +13,7 @@ This started a simple exercise but felt inspired to build out the feature set to
 - [x] 🔊 Add sound for slot spinning
 - [x] 🎉 Add sound for big win (e.g., all 🌟s)
 - [x] 🖼️ Add "spinning" animation 
-- [ ] 🐣 Add secret "easter egg" code that triggers guaranteed wins
+- [x] 🧵 Add threading so sound and animation play simultaneously 
+- [x] 🐣 Add secret cheat code that increases odds with out guaranteed wins
 
 ---
